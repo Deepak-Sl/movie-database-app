@@ -1,0 +1,43 @@
+.details-page {
+  padding: 2rem;
+}
+
+.movie-info {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.movie-info img {
+  border-radius: 8px;
+  width: 300px;
+}
+
+.movie-info h2 {
+  margin-bottom: 0.5rem;
+}
+
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.cast-card {
+  text-align: center;
+}
+
+.cast-card img {
+  width: 100px;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.cast-name {
+  font-weight: bold;
+}
+
+.character-name {
+  font-style: italic;
+  font-size: 0.85rem;
+}
