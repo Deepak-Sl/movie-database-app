@@ -1,17 +1,23 @@
+import './index.css'
+
 const Pagination = props => {
-  const {currentPage, onPageChange} = props
+  const {currentPage, onPageChange, totalPages} = props
   return (
-    <div style={{textAlign: 'center', marginBottom: '2rem'}}>
+    <div className="pagination-container">
       <button
         type="button"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        ◀ Prev
+        Prev
       </button>
-      <span style={{margin: '0 1rem'}}>Page {currentPage}</span>
-      <button type="button" onClick={() => onPageChange(currentPage + 1)}>
-        Next ▶
+      <p>{currentPage}</p>
+      <button
+        type="button"
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage >= totalPages}
+      >
+        Next
       </button>
     </div>
   )

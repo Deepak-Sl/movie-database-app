@@ -8,6 +8,7 @@ const Popular = () => {
   const [movies, setMovies] = useState([])
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(true)
+  const [totalPages, setTotalPages] = useState(2)
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
@@ -17,6 +18,7 @@ const Popular = () => {
       )
       const data = await res.json()
       setMovies(data.results)
+      setTotalPages(data.total_pages)
       setLoading(false)
     }
 
@@ -40,9 +42,13 @@ const Popular = () => {
               />
             ))}
           </div>
-          <Pagination currentPage={page} onPageChange={setPage} />
         </>
       )}
+      <Pagination
+        currentPage={page}
+        onPageChange={setPage}
+        totalPages={totalPages}
+      />
     </>
   )
 }

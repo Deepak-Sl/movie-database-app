@@ -34,7 +34,9 @@ const SearchResults = () => {
     fetchSearchResults()
   }, [query])
 
-  if (!query) return <p style={{padding: '2rem'}}>No search query found.</p>
+  if (!query) {
+    return <p style={{padding: '2rem'}}>No search query found.</p>
+  }
 
   return (
     <div className="search-page">
@@ -42,9 +44,9 @@ const SearchResults = () => {
         Search Results for: <span className="query-text">{query}</span>
       </h2>
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : movies.length > 0 ? (
+      {loading && <p>Loading...</p>}
+
+      {!loading && movies.length > 0 && (
         <div className="grid">
           {movies.map(movie => (
             <MovieCard
@@ -56,9 +58,9 @@ const SearchResults = () => {
             />
           ))}
         </div>
-      ) : (
-        <p>No movies found for "{query}".</p>
       )}
+
+      {!loading && movies.length === 0 && <p>No movies found for "{query}".</p>}
     </div>
   )
 }
